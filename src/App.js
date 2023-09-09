@@ -35,7 +35,7 @@ function App() {
       },
       onSubmit: ({ data, width, height, qrcolor, bgcolor, format }) => {
 
-        const qrURL = `http://api.qrserver.com/v1/create-qr-code/?data=${data}&size=${width}x${height}&color=${qrcolor.slice(1)}&bgcolor=${bgcolor.slice(1)}&format=${format}`
+        const qrURL = `https://api.qrserver.com/v1/create-qr-code/?data=${data}&size=${width}x${height}&color=${qrcolor.slice(1)}&bgcolor=${bgcolor.slice(1)}&format=${format}`
         setQrcode(qrURL)
       }
     }
