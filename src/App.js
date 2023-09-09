@@ -103,7 +103,7 @@ function App() {
               </div>
             </div>
             <div className='col-lg-6' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h4 style={{ marginBottom: '30px' }}>QR Code</h4>
+              <h4 style={{ marginBottom: '30px' }}>QR Code </h4>
               <img className="qr-img" src={qrcode}></img>
             </div>
           </div>
