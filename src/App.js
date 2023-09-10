@@ -55,62 +55,112 @@ function App() {
 
   return (
     <div className="App">
-      <h1>QR Code Generator</h1>
+      <h1 className="mt-3">QR Code Generator</h1>
       <div className='container'>
         <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); formik.handleSubmit() }}>
           <div className='row'>
             <div className='col-lg-6'>
               <h4>Details</h4>
-              <div className='row'>
-                <label style={{ padding: 0 }}>Enter the Data: </label>
-                <input name="data" type={'text'} onChange={formik.handleChange} value={formik.values.data} className={'form-control'} />
-                {submitted && formik.errors.data ? <span style={{ color: "red" }}>{formik.errors.data}</span> : null}
+              <div className='form-group'>
+                <label htmlFor="data">Enter the Data:</label>
+                <input
+                  name="data"
+                  type="text"
+                  onChange={formik.handleChange}
+                  value={formik.values.data}
+                  className='form-control'
+                />
+                {submitted && formik.errors.data ? (
+                  <span style={{ color: 'red' }}>{formik.errors.data}</span>
+                ) : null}
               </div>
-              <div className='row'>
-                <div className='col-lg-6' style={{ paddingLeft: 0 }}>
-                  <label>Width:</label>
-                  <input name="width" type={'number'} onChange={formik.handleChange} value={formik.values.width} className={'form-control'} />
+              <div className='form-row'>
+                <div className='form-group col-lg-6'>
+                  <label htmlFor="width">Width:</label>
+                  <input
+                    name="width"
+                    type="number"
+                    onChange={formik.handleChange}
+                    value={formik.values.width}
+                    className='form-control'
+                  />
                 </div>
-                <div className='col-lg-6' style={{ paddingRight: 0 }}>
-                  <label>Height:</label>
-                  <input name="height" type={'number'} onChange={formik.handleChange} value={formik.values.height} className={'form-control'} />
+                <div className='form-group col-lg-6'>
+                  <label htmlFor="height">Height:</label>
+                  <input
+                    name="height"
+                    type="number"
+                    onChange={formik.handleChange}
+                    value={formik.values.height}
+                    className='form-control'
+                  />
                 </div>
               </div>
-              {submitted && formik.errors.size ? <span style={{ color: "red" }}>{formik.errors.size}</span> : null}
-              <div className='row'>
-                <label style={{ padding: 0 }}>QR Color: </label>
-                <input name="qrcolor" type={'color'} onChange={formik.handleChange} value={formik.values.qrcolor} className={'form-control'} style={{ padding: 0 }} />
+              {submitted && formik.errors.size ? (
+                <span style={{ color: 'red' }}>{formik.errors.size}</span>
+              ) : null}
+              <div className='form-group'>
+                <label htmlFor="qrcolor">QR Color:</label>
+                <input
+                  name="qrcolor"
+                  type="color"
+                  onChange={formik.handleChange}
+                  value={formik.values.qrcolor}
+                  className='form-control'
+                />
               </div>
-              <div className='row'>
-                <label style={{ padding: 0 }}>Background Color: </label>
-                <input name="bgcolor" type={'color'} onChange={formik.handleChange} value={formik.values.bgcolor} className={'form-control'} style={{ padding: 0 }} />
+              <div className='form-group'>
+                <label htmlFor="bgcolor">Background Color:</label>
+                <input
+                  name="bgcolor"
+                  type="color"
+                  onChange={formik.handleChange}
+                  value={formik.values.bgcolor}
+                  className='form-control'
+                />
               </div>
-              <div className='row'>
-                <label style={{ padding: 0 }}>Format: </label>
-                <select name="format" className={'form-control'} onChange={formik.handleChange} value={formik.values.format}>
-                  <option disabled selected value={''}>--select--</option>
+              <div className='form-group'>
+                <label htmlFor="format">Format:</label>
+                <select
+                  name="format"
+                  className='form-control'
+                  onChange={formik.handleChange}
+                  value={formik.values.format}
+                >
+                  <option disabled value={''}>
+                    --select--
+                  </option>
                   <option value={'jpg'}>JPG</option>
                   <option value={'png'}>PNG</option>
                   <option value={'svg'}>SVG</option>
                 </select>
-                {submitted && formik.errors.format ? <span style={{ color: "red" }}>{formik.errors.format}</span> : null}
+                {submitted && formik.errors.format ? (
+                  <span style={{ color: 'red' }}>{formik.errors.format}</span>
+                ) : null}
               </div>
-              <div className='row' style={{ marginTop: '10px' }}>
-                <button className='btn btn-sm btn-success' type={'submit'} >Generate</button>
+              <div className='form-group' style={{ marginTop: '10px' }}>
+                <button className='btn btn-sm btn-success' type='submit'>
+                  Generate
+                </button>
               </div>
-              <div className='row' style={{ marginTop: '10px' }}>
-                <button type={'button'} className='btn btn-sm btn-primary' onClick={downloadQRCode}>Download</button>
+              <div className='form-group' style={{ marginTop: '10px' }}>
+                <button
+                  type='button'
+                  className='btn btn-sm btn-primary'
+                  onClick={downloadQRCode}
+                >
+                  Download
+                </button>
               </div>
             </div>
             <div className='col-lg-6' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <h4 style={{ marginBottom: '30px' }}>QR Code </h4>
-              <img className="qr-img" src={qrcode}></img>
+              <h4 style={{ marginBottom: '30px' }}>QR Code</h4>
+              <img className='qr-img img-fluid' src={qrcode} alt='QR Code' />
             </div>
           </div>
         </form>
       </div>
     </div>
-
   );
 }
 
